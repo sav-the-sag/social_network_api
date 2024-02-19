@@ -10,4 +10,16 @@ const userSchema = new Schema(
         required: true,
         trim: true,
       },
+      email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+@.+\..+/, "Must match an email address!"],
+      },
+      thoughts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "thought",
+        },
+      ],
     });
