@@ -120,3 +120,6 @@ const userController = {
         }
     },
 };
+
+// exports
+module.exports = userController;
