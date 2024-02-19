@@ -27,3 +27,14 @@ const thoughtSchema = new Schema(
     },
     id: false,
   });
+
+// increases reaction count in Thought model object when reactions are added to a thought
+thoughtSchema.virtual("reactionCount").get(function () {
+    return this.reactions.length;
+  });
+  
+// creates Thought model with thoughtSchema
+const Thought = model("thought", thoughtSchema);
+  
+// exports
+module.exports = Thought;
