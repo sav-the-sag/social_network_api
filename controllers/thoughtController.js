@@ -123,3 +123,6 @@ const thoughtController = {
         }
     },
 };
+
+// exports
+module.exports = thoughtController;
