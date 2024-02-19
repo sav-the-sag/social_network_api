@@ -82,4 +82,23 @@ const thoughtController = {
             return res.status(500).json(err);
         }
     },
+    // add reaction
+    async addReaction(req, res) {
+        try {
+            const reaction = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId },
+                { $addToSet: { reactions: req.body } },
+                { runValidators: true }
+            );
+
+            if (!reaction) {
+                return res.status(404).json({ message: "No thought with that ID" });
+            }
+
+            return res.status(200).json(reaction);
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json(err);
+        }
+    },
 };
