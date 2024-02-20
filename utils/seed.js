@@ -19,7 +19,7 @@ console.log(connection);
 connection.once("open", async () => {
   console.log("connected");
 
-// drop existing students
+// drop existing users
   await User.deleteMany({});
 
 // adds seed data to database
